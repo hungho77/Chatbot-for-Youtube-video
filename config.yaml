@@ -1,0 +1,24 @@
+loader: 
+  text: 
+    chunk_size: 1000
+    chunk_overlap: 50
+
+    embedding: 
+      provider: gemini
+      settings: 
+        model: models/embedding-001
+
+  image: 
+    provider: sentence-transformers    # TODO: provider can be CLIP or HuggingFace (download directly from the hub).
+    settings: 
+      model: clip-ViT-B-32
+      batch_size: 4
+      convert_to_tensor: True
+      top_k: 5
+      
+gen_model: 
+  provider: groq
+  settings: 
+    model: llama3-8b-8192
+    temperature: 1.
+    max_tokens: 128
